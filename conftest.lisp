@@ -1,8 +1,7 @@
-(cl:in-package :srfi-27.internal)
+(cl:in-package "https://github.com/g000001/srfi-27#internals")
 
-(def-suite srfi-27)
+(def-suite* srfi-27)
 
-(in-suite srfi-27)
 
 ; CONFIDENCE TESTS FOR SRFI-27 "Sources of Random Bits"
 ; =====================================================

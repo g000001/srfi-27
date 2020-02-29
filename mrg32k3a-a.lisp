@@ -1,4 +1,4 @@
-(cl:in-package :srfi-27.internal)
+(cl:in-package "https://github.com/g000001/srfi-27#internals")
 ; 54-BIT INTEGER IMPLEMENTATION OF THE "MRG32K3A"-GENERATOR
 ; =========================================================
 ;

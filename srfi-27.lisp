@@ -1,22 +1,22 @@
 ;;;; srfi-27.lisp
 
-(cl:in-package :srfi-27.internal)
+(cl:in-package "https://github.com/g000001/srfi-27#internals")
 
-(define-record-type |:random-source|
-  (|:random-source-make|
+(define-record-type $random-source
+  ($random-source-make
    state-ref
    state-set!
    randomize!
    pseudo-randomize!
    make-integers
    make-reals)
-  |:random-source?|
-  (state-ref         |:random-source-state-ref|)
-  (state-set!        |:random-source-state-set!|)
-  (randomize!        |:random-source-randomize!|)
-  (pseudo-randomize! |:random-source-pseudo-randomize!|)
-  (make-integers     |:random-source-make-integers|)
-  (make-reals        |:random-source-make-reals|))
+  $random-source?
+  (state-ref         $random-source-state-ref)
+  (state-set!        $random-source-state-set!)
+  (randomize!        $random-source-randomize!)
+  (pseudo-randomize! $random-source-pseudo-randomize!)
+  (make-integers     $random-source-make-integers)
+  (make-reals        $random-source-make-reals))
 
 (defun random-source-current-time ()
   #+sbcl

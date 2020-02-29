@@ -1,4 +1,5 @@
-* SRFI-27: Sources of Random Bits
+# SRFI 27 for CL: Sources of Random Bits
+
 - Copyright (C) Sebastian Egner (2002). All Rights Reserved.
 
 Permission is hereby granted, free of charge, to any person obtaining

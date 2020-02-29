@@ -1,4 +1,4 @@
-(cl:in-package :srfi-27.internal)
+(cl:in-package "https://github.com/g000001/srfi-27#internals")
 ; GENERIC PART OF MRG32k3a-GENERATOR FOR SRFI-27
 ; ==============================================
 ;
@@ -200,8 +200,8 @@
 ; available this is not necessary, but pseudo-randomize! is an expected
 ; to be called only occasionally so we do not provide this implementation.
 
-(defvar mrg32k3a-m1 4294967087) ; modulus of component 1
-(defvar mrg32k3a-m2 4294944443) ; modulus of component 2
+(defconstant mrg32k3a-m1 4294967087) ; modulus of component 1
+(defconstant mrg32k3a-m2 4294944443) ; modulus of component 2
 
 (defvar mrg32k3a-initial-state ; 0 3 6 9 12 15 of A^16, see below
   '#( 1062452522
@@ -411,7 +411,7 @@
   (let ((state (mrg32k3a-pack-state ; make a new copy
                 (list->vector (vector->list
                                mrg32k3a-initial-state )))))
-    (|:random-source-make|
+    ($random-source-make
      (lambda ()
        (mrg32k3a-state-ref state) )
      (lambda (new-state)
@@ -449,27 +449,27 @@
           (error "illegal arguments" args) ))))))
 
 (define-function random-source?
-  #'|:random-source?|)
+  #'$random-source?)
 
 (define-function (random-source-state-ref s)
-  (funcall (|:random-source-state-ref| s)))
+  (funcall ($random-source-state-ref s)))
 
 (define-function (random-source-state-set! s state)
-  (funcall (|:random-source-state-set!| s) state))
+  (funcall ($random-source-state-set! s) state))
 
 (define-function (random-source-randomize! s)
-  (funcall (|:random-source-randomize!| s)))
+  (funcall ($random-source-randomize! s)))
 
 (define-function (random-source-pseudo-randomize! s i j)
-  (funcall (|:random-source-pseudo-randomize!| s) i j))
+  (funcall ($random-source-pseudo-randomize! s) i j))
 
 ; ---
 
 (define-function (random-source-make-integers s)
-  (funcall (|:random-source-make-integers| s)))
+  (funcall ($random-source-make-integers s)))
 
 (define-function (random-source-make-reals s . unit)
-  (apply (|:random-source-make-reals| s) unit))
+  (apply ($random-source-make-reals s) unit))
 
 ; ---
 
